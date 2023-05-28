@@ -11,7 +11,7 @@ const ContactList = ({ contacts, onRemoveContact }) => (
           <button
             className={styles.TaskList_button}
             type="button"
-            name="delte"
+            name="delete"
             onClick={() => onRemoveContact(contact.id)}
           >
             delete
@@ -30,6 +30,7 @@ ContactList.propTypes = {
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
     })
-  ),
+  ).isRequired,
 };
+
 export default ContactList;
