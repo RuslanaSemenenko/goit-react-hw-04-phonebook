@@ -27,7 +27,8 @@ export default function App() {
   const addContact = contact => {
     const { name, number } = contact;
 
-    const searchSameName = contacts.map(cont => cont.name).includes(name);
+    const searchSameName =
+      contacts.length > 0 && contacts.map(cont => cont.name).includes(name);
 
     if (searchSameName) {
       alert(`${name} is already in contacts`);
@@ -39,7 +40,7 @@ export default function App() {
         id: uuidv4(),
       };
 
-      setContacts(prevContacts => [...prevContacts, newContact]);
+      setContacts(prevContacts => [...Object.values(prevContacts), newContact]);
     }
   };
 
@@ -48,9 +49,12 @@ export default function App() {
   };
 
   const getVisibleContacts = () => {
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
+    if (Array.isArray(contacts) && contacts.length > 0 && filter) {
+      return contacts.filter(contact =>
+        contact.name.toLowerCase().includes(filter.toLowerCase())
+      );
+    }
+    return [];
   };
 
   const removeContact = contactId => {
