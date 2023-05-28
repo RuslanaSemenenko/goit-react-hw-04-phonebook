@@ -35,7 +35,7 @@ export default function App() {
         id: uuidv4(),
       };
 
-      setContacts(prevContacts => [...Object.values(prevContacts), newContact]);
+      setContacts(prevContacts => [...prevContacts, newContact]);
     }
   };
 
