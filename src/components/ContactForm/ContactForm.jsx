@@ -1,24 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ContactForm.module.css';
 
 export default function ContactForm({ onAddContact }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
-  useEffect(() => {
-    const storedContacts = localStorage.getItem('contacts');
-    if (storedContacts) {
-      const parsedContacts = JSON.parse(storedContacts);
-      setName(parsedContacts.name || '');
-      setNumber(parsedContacts.number || '');
-    }
-  }, []);
-
-  useEffect(() => {
-    const contacts = { name, number };
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [name, number]);
 
   const handleChange = e => {
     const { name, value } = e.target;
