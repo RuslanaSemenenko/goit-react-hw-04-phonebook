@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import styles from './ContactForm.module.css';
+import {
+  TaskEditor,
+  TaskEditorLabel,
+  TaskEditorInput,
+  TaskEditorButton,
+} from './ContactForm.module.jsx';
 
 export default function ContactForm({ onAddContact }) {
   const [name, setName] = useState('');
@@ -23,34 +27,28 @@ export default function ContactForm({ onAddContact }) {
   };
 
   return (
-    <form className={styles.TaskEditor} onSubmit={handleSubmit}>
-      <label className={styles.TaskEditor_label}>
+    <TaskEditor onSubmit={handleSubmit}>
+      <TaskEditorLabel>
         Name
-        <input
-          className={styles.TaskEditor_input}
+        <TaskEditorInput
           type="text"
           name="name"
           value={name}
           onChange={handleChange}
         />
-      </label>
-      <label className={styles.TaskEditor_label}>
+      </TaskEditorLabel>
+      <TaskEditorLabel>
         Number
-        <input
-          className={styles.TaskEditor_input}
+        <TaskEditorInput
           type="text"
           name="number"
           value={number}
           onChange={handleChange}
         />
-      </label>
-      <button className={styles.TaskEditor_button} type="submit">
+      </TaskEditorLabel>
+      <TaskEditorButton type="submit" onClick={handleSubmit}>
         Add contact
-      </button>
-    </form>
+      </TaskEditorButton>
+    </TaskEditor>
   );
 }
-
-ContactForm.propTypes = {
-  onAddContact: PropTypes.func.isRequired,
-};

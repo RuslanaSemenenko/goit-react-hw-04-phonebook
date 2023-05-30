@@ -44,7 +44,7 @@ export default function App() {
   };
 
   const getVisibleContacts = () => {
-    if (Array.isArray(contacts) && contacts.length > 0 && filter) {
+    if (Array.isArray(contacts) && contacts.length > 0) {
       return contacts.filter(contact =>
         contact.name.toLowerCase().includes(filter.toLowerCase())
       );

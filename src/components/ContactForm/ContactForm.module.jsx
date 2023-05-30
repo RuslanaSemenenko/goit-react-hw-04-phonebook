@@ -1,4 +1,7 @@
-.TaskEditor {
+import styled from '@emotion/styled';
+
+
+export const TaskEditor = styled.div`
   display: flex;
   flex-direction: column;
   padding: 12px;
@@ -7,17 +10,17 @@
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   margin-bottom: 16px;
-}
+`;
 
-.TaskEditor_label {
+export const TaskEditorLabel = styled.label`
   display: inline-block;
   margin-bottom: 16px;
   font-size: 20px;
   color: #171718;
   cursor: pointer;
-}
+`;
 
-.TaskEditor_input {
+export const TaskEditorInput = styled.input`
   color: #171718;
   font: inherit;
   font-size: 1.2rem;
@@ -26,9 +29,9 @@
   border: 1px solid #bdbdbd;
   width: 350px;
   outline: 0;
-}
+`;
 
-.TaskEditor_button {
+export const TaskEditorButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -44,13 +47,13 @@
   text-transform: uppercase;
   user-select: none;
   transition: background-color 200ms ease-in-out;
-}
 
-.TaskEditor_button:hover {
-  box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.15);
-  background-color: #303f9f;
-}
+  &:hover {
+    box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.15);
+    background-color: #303f9f;
+  }
+`;
 
-.TaskEditor_input:focus {
+export const TaskEditorInputFocus = styled(TaskEditorInput)`
   border: 1px solid #2b32b2;
-}
+`;

@@ -1,25 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './ContactList.module.css';
+import {
+  TaskList,
+  TaskListItem,
+  TaskListButton
+} from './ContactList.module.jsx';
 
 const ContactList = ({ contacts, onRemoveContact }) => (
-  <ul className={styles.TaskList}>
+  <TaskList>
     {contacts.map(contact => (
-      <li className={styles.TaskList_item} key={contact.id}>
+      <TaskListItem key={contact.id}>
         {contact.name + ':' + contact.number}
-        {
-          <button
-            className={styles.TaskList_button}
-            type="button"
-            name="delete"
-            onClick={() => onRemoveContact(contact.id)}
-          >
-            delete
-          </button>
-        }
-      </li>
+        <TaskListButton
+          type="button"
+          name="delete"
+          onClick={() => onRemoveContact(contact.id)}
+        >
+          delete
+        </TaskListButton>
+      </TaskListItem>
     ))}
-  </ul>
+  </TaskList>
 );
 
 ContactList.propTypes = {
